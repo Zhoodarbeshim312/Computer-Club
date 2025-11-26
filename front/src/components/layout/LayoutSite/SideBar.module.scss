@@ -1,0 +1,44 @@
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  padding: 10px 0;
+  border-right: 1px solid #222;
+  position: sticky;
+  top: 0;
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    a {
+      color: #fff;
+      position: relative;
+      padding: 5px 0;
+      width: max-content;
+      transition: color 0.3s;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        border-radius: 50px;
+        background: #a742dc;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover::after,
+      &.active::after {
+        transform: scaleX(1);
+      }
+      &:hover {
+        color: #a742dc;
+      }
+    }
+  }
+}

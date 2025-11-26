@@ -1,0 +1,17 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  background: #0e0e13;
+  width: 100%;
+  border-bottom: 1px solid #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

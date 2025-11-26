@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="title desc">
+  <title id="title">Computer Club Icon</title>
+  <desc id="desc">Stylized monitor, keyboard and mouse with pink-to-purple gradient</desc>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FF6AA3"></stop>
+      <stop offset="100%" stop-color="#7B2FF7"></stop>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#FFD0E8"></stop>
+      <stop offset="100%" stop-color="#CFA3FF"></stop>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#7b2ff7" flood-opacity="0.18"></feDropShadow>
+    </filter>
+  </defs>
+
+  <!-- background rounded card -->
+  <rect x="6" y="6" width="116" height="116" rx="18" fill="url(#g2)" opacity="0.95"></rect>
+
+  <!-- monitor shadow -->
+  <g filter="url(#s)">
+    <!-- monitor frame -->
+    <rect x="18" y="14" width="92" height="58" rx="8" fill="url(#g1)"></rect>
+    <!-- screen (darker center) -->
+    <rect x="26" y="22" width="76" height="42" rx="4" fill="#0b0520" opacity="0.92"></rect>
+    <!-- subtle glow inside screen -->
+    <ellipse cx="64" cy="36" rx="26" ry="10" fill="rgba(255,90,160,0.06)"></ellipse>
+  </g>
+
+  <!-- stand -->
+  <rect x="54" y="76" width="20" height="6" rx="2" fill="#2a1633"></rect>
+  <rect x="46" y="82" width="36" height="6" rx="3" fill="#2a1633"></rect>
+
+  <!-- keyboard -->
+  <rect x="22" y="92" width="84" height="10" rx="3" fill="#20132b"></rect>
+  <!-- keys (row) -->
+  <g fill="#3a2340">
+    <rect x="26" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="36" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="46" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="56" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="66" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="76" y="94" width="8" height="4" rx="1"></rect>
+    <rect x="86" y="94" width="8" height="4" rx="1"></rect>
+  </g>
+
+  <!-- mouse on the right -->
+  <g transform="translate(96,86) rotate(-12)">
+    <ellipse cx="0" cy="0" rx="6.6" ry="9.6" fill="url(#g1)"></ellipse>
+    <rect x="-1" y="-6" width="2" height="6" rx="1" fill="#fff" opacity="0.18"></rect>
+  </g>
+
+  <!-- sparkles / decorative elements -->
+  <g fill="url(#g1)" opacity="0.95">
+    <path d="M18 36 l2 -5 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2z" transform="translate(8,4) scale(0.7)"></path>
+    <path d="M18 36 l1 -3 l1 3 l3 1 l-3 1 l-1 3 l-1 -3 l-3 -1z" transform="translate(96,12) scale(0.6)"></path>
+    <circle cx="30" cy="70" r="1.8"></circle>
+    <circle cx="98" cy="50" r="1.6"></circle>
+  </g>
+</svg>
