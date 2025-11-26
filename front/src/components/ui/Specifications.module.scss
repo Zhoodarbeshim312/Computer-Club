@@ -1,0 +1,58 @@
+.Specifications {
+  padding: 40px 0;
+  color: #fff;
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+
+    .icon {
+      font-size: 36px;
+      color: #a742dc;
+    }
+  }
+
+  .specifications {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 400px;
+    min-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #a742dc;
+    }
+
+    ul {
+      list-style: disc inside;
+      li {
+        margin-bottom: 8px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+  }
+}
