@@ -1,121 +1,59 @@
-// Zones.tsx
-import Specifications from "@/components/ui/Specifications";
+"use client";
 import scss from "./Zones.module.scss";
+import { zonesData } from "./ZonesData";
 
-interface Zone {
-  name: string;
-  monitor: {
-    type: string;
-    refreshRate: string;
-    support: string;
-    usage: string;
-  };
-  system: {
-    processor: string;
-    graphics: string;
-    ram: string;
-    storage: string;
-    motherboard: string;
-    cooling: string;
-    powerSupply: string;
-    case: string;
-  };
-}
-
-interface ZoneProps {
+interface ZonesProps {
   zoneParam: string;
 }
 
-const Zones = ({ zoneParam }: ZoneProps) => {
-  const zones: Zone[] = [
-    {
-      name: "Standard Zone",
-      monitor: {
-        type: "1080p IPS",
-        refreshRate: "144 Hz",
-        support: "HDR, FreeSync",
-        usage: "Casual gaming, Streaming",
-      },
-      system: {
-        processor: "Intel Core i5-13600K",
-        graphics: "NVIDIA RTX 4060",
-        ram: "32 GB DDR5",
-        storage: "NVMe SSD 1 TB",
-        motherboard: "B660",
-        cooling: "Air Cooling",
-        powerSupply: "650 W",
-        case: "Mid-tower ATX",
-      },
-    },
-    {
-      name: "Comfort Zone",
-      monitor: {
-        type: "1440p IPS",
-        refreshRate: "165 Hz",
-        support: "HDR, G-Sync/FreeSync",
-        usage: "Gaming 1440p, Streaming, Light Rendering",
-      },
-      system: {
-        processor: "Intel Core i7-13700K",
-        graphics: "NVIDIA RTX 4070",
-        ram: "64 GB DDR5",
-        storage: "NVMe SSD 2 TB",
-        motherboard: "Z790",
-        cooling: "Air / Liquid 240 mm",
-        powerSupply: "750 W",
-        case: "Mid / Full-tower ATX",
-      },
-    },
-    {
-      name: "VIP Zone",
-      monitor: {
-        type: "4K OLED",
-        refreshRate: "240 Hz",
-        support: "HDR, G-Sync/FreeSync",
-        usage: "4K Gaming, Streaming, 3D Rendering",
-      },
-      system: {
-        processor: "AMD Ryzen 9 7950X",
-        graphics: "NVIDIA RTX 4090",
-        ram: "128 GB DDR5",
-        storage: "NVMe SSD 2-4 TB",
-        motherboard: "X670E",
-        cooling: "Liquid 280–360 mm",
-        powerSupply: "1000 W",
-        case: "Full-tower ATX",
-      },
-    },
-    {
-      name: "Luxury Zone",
-      monitor: {
-        type: "4K QD-OLED",
-        refreshRate: "240 Hz",
-        support: "HDR, G-Sync/FreeSync",
-        usage: "4K Ultra Gaming, Streaming, AI Rendering",
-      },
-      system: {
-        processor: "AMD Ryzen 9 9950X3D",
-        graphics: "NVIDIA RTX 5090",
-        ram: "128 GB DDR5",
-        storage: "NVMe SSD 4 TB",
-        motherboard: "TRX40",
-        cooling: "Liquid 360 mm",
-        powerSupply: "1200 W",
-        case: "Full-tower ATX",
-      },
-    },
-  ];
-
-  const zone = zones.find((z) =>
+const Zones = ({ zoneParam }: ZonesProps) => {
+  const zone = zonesData.find((z) =>
     z.name.toLowerCase().includes(zoneParam.toLowerCase())
   );
 
+  if (!zone) return <p>Zone not found</p>;
+
+  const rows = Array.from({ length: 4 }, (_, rowIndex) => (
+    <div key={rowIndex} className={scss.row}>
+      {Array.from({ length: 10 }, (_, seatIndex) => (
+        <div key={seatIndex} className={scss.seat}>
+          {seatIndex + 1}
+        </div>
+      ))}
+    </div>
+  ));
+
   return (
-    <section className={scss.Zones}>
-      <div className={scss.content}>
-        {zone ? <Specifications zone={zone} /> : <p>Zone not found</p>}
+    <div className={scss.Zones}>
+      <h2>Characteristics</h2>
+      <div className={scss.characteristics}>
+        <div>
+          <h3>Monitor</h3>
+          <ul>
+            <li>Type: {zone.monitor.type}</li>
+            <li>Refresh Rate: {zone.monitor.refreshRate}</li>
+            <li>Support: {zone.monitor.support}</li>
+            <li>Usage: {zone.monitor.usage}</li>
+          </ul>
+        </div>
+        <div>
+          <h3>System Unit</h3>
+          <ul>
+            <li>Processor: {zone.system.processor}</li>
+            <li>Graphics: {zone.system.graphics}</li>
+            <li>RAM: {zone.system.ram}</li>
+            <li>Storage: {zone.system.storage}</li>
+            <li>Motherboard: {zone.system.motherboard}</li>
+            <li>Cooling: {zone.system.cooling}</li>
+            <li>Power Supply: {zone.system.powerSupply}</li>
+            <li>Case: {zone.system.case}</li>
+          </ul>
+        </div>
       </div>
-    </section>
+
+      <h2>Seating Rows</h2>
+      <div className={scss.rows}>{rows}</div>
+    </div>
   );
 };
 
