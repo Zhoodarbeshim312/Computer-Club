@@ -1,4 +1,3 @@
-// ZonesPage.tsx
 import Zones from "./zones/Zones";
 
 interface ZonesPageProps {
